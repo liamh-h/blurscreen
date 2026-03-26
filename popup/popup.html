@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 280px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #1e293b;
+      padding: 16px;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .header .icon {
+      width: 32px; height: 32px;
+      background: #6366f1;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 17px;
+      color: white;
+    }
+    .header h1 { font-size: 16px; font-weight: 700; color: #1e293b; }
+    .status {
+      text-align: center;
+      margin-bottom: 12px;
+      font-size: 12px;
+      color: #9ca3af;
+      padding: 5px;
+      border-radius: 6px;
+      background: #f9fafb;
+      font-weight: 500;
+    }
+    .btn {
+      width: 100%;
+      padding: 10px 12px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 6px;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+    }
+    .btn:hover { background: #f9fafb; border-color: #d1d5db; }
+    .btn-primary {
+      background: #6366f1;
+      color: white;
+      border-color: #6366f1;
+    }
+    .btn-primary:hover { background: #4f46e5; border-color: #4f46e5; }
+    .btn-secondary { color: #374151; }
+    .btn-danger { color: #ef4444; }
+    .btn-danger:hover { background: #fef2f2; border-color: #fecaca; }
+    .btn kbd {
+      background: rgba(0,0,0,0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 10px;
+      font-weight: 400;
+      color: inherit;
+      opacity: 0.7;
+    }
+    .btn-primary kbd { background: rgba(255,255,255,0.2); }
+    .divider {
+      height: 1px;
+      background: #f3f4f6;
+      margin: 10px 0;
+    }
+    .shortcuts {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+    .shortcuts div {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+    }
+    .shortcuts kbd {
+      background: #f3f4f6;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 10px;
+      color: #6b7280;
+      border: 1px solid #e5e7eb;
+    }
+    .usage {
+      text-align: center;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    .usage strong { color: #6366f1; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="icon">&#x1f6e1;</div>
+    <h1>BlurScreen</h1>
+  </div>
+  <button class="btn btn-primary" id="toggle">
+    <span>Toggle BlurScreen</span><kbd>Alt+B</kbd>
+  </button>
+  <button class="btn btn-secondary" id="detect">
+    <span>Auto-detect sensitive info</span><kbd>Alt+A</kbd>
+  </button>
+  <button class="btn btn-danger" id="clear">
+    <span>Clear all blurs</span><kbd>Alt+C</kbd>
+  </button>
+  <div class="divider"></div>
+  <div class="shortcuts">
+    <div><span>Draw blur box</span><kbd>Alt + Drag</kbd></div>
+    <div><span>Exit edit mode</span><kbd>Esc</kbd></div>
+  </div>
+  <div class="usage" id="usage"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

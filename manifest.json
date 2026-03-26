@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "BlurScreen - Blur & Hide Sensitive Info on Screen",
+  "version": "1.0.0",
+  "description": "Blur & redact sensitive data on any webpage. Auto-detect emails, API keys, passwords. Screen sharing privacy for Zoom, Loom, Meet.",
+  "permissions": [
+    "storage",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["lib/ExtPay.js", "content-scripts/detector.js", "content-scripts/blurscreen.js"],
+      "css": ["content-scripts/blurscreen.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "commands": {
+    "toggle-blur": {
+      "suggested_key": { "default": "Alt+B", "mac": "Alt+B" },
+      "description": "Toggle BlurScreen"
+    },
+    "auto-detect": {
+      "suggested_key": { "default": "Alt+A", "mac": "Alt+A" },
+      "description": "Auto-detect and blur sensitive info"
+    },
+    "clear-all": {
+      "suggested_key": { "default": "Alt+C", "mac": "Alt+C" },
+      "description": "Clear all blurs"
+    }
+  },
+  "externally_connectable": {
+    "matches": ["*://*.extensionpay.com/*"]
+  },
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
+}
